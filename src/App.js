@@ -6,11 +6,11 @@ import Display from './pages/display/Display';
 function App() {
 
   return (
-    <div className="App">
+    <div className="App bg-slate-800">
       <div className="container">
         <Routes>
-          <Route exact path="/" element={<Display></Display>}></Route>
-          <Route path='/create' element={<Create></Create>}></Route>
+          <Route exact path="/create" element={<Display></Display>}></Route>
+          <Route path='/' element={<Create></Create>}></Route>
         </Routes>
       </div>
     </div>
