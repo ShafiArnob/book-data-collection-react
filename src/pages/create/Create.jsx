@@ -1,7 +1,11 @@
+import CreateForm from "./CreateForm"
 
 function Create() {
   return (
-    <div>Create</div>
+    <div>
+      Create
+      <CreateForm/>
+    </div>
   )
 }
 
