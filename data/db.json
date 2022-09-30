@@ -1,0 +1,20 @@
+{
+  "books":[
+    {
+      "id":1,
+      "who":983,
+      "author":"Dummy",
+      "gender":"m",
+      "birth":"01-02-2022",
+      "birth-place":"Dhaka",
+      "death":"01-02-2022",
+      "death-place":"Dhaka",
+      "title":"Think and Grow Rich",
+      "publisher": "Prokashoni",
+      "publish-date":"01-02-2022",
+      "genre":"horror",
+      "book-abstract":"চোখ দু'টি তক্ষকের চোখের মতো। কোটর থেকে অনেকখানি বেরিয়ে আছে।",
+      "book-text":"চোখ দু'টি তক্ষকের চোখের মতো। কোটর থেকে অনেকখানি বেরিয়ে আছে।"
+    }
+  ]
+}

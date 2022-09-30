@@ -85,7 +85,7 @@ function CreateForm() {
         </label>
         
         <label>
-          <select class="select w-full max-w-xs"  onChange={(e) => setGenre(e.target.value)}>
+          <select class="select w-full max-w-xs" required onChange={(e) => setGenre(e.target.value)}>
             <option disabled selected>Genre</option>
             <option>horror</option>
             <option>sci-fi</option>
@@ -94,7 +94,7 @@ function CreateForm() {
 
         <label className='w-full'>
           <h3 className='text-2xl'>Book Abstract: </h3>
-          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)}></textarea>
+          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)} required></textarea>
         </label>
 
       <label className='w-full'>
