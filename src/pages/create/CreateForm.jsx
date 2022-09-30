@@ -18,13 +18,21 @@ function CreateForm() {
   const [bookText,setBookText] = useState('')
   // const [,set] = useState('')
 
-
+  const removeNewline = (str) =>{
+    str = str.toString()
+    str = str.replace(/\r?\n|\r/g, "")
+    str = str.replace(/\r?\d|\r/g, "")
+    str = str.replace(/[.,/#!$%^&*;:{}=\-_`~()'"॥€]/g,"");
+    str = str.replace(/[a-zA-Z]/," ")
+    return str
+  }
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    //
-    console.log({who,author,gender,birth,birthPlace,death,deathPlace});
-    console.log({title,publisher,publishDate,genre,bookText});
+    const newBookText = removeNewline(bookText)
+    // console.log({who,author,gender,birth,birthPlace,death,deathPlace});
+    // console.log({title,publisher,publishDate,genre,newBookText});
+    console.log(newBookText);
   }
 
   return (
@@ -94,12 +102,12 @@ function CreateForm() {
 
         <label className='w-full'>
           <h3 className='text-2xl'>Book Abstract: </h3>
-          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)} required></textarea>
+          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)} ></textarea>
         </label>
 
       <label className='w-full'>
         <h3 className='text-2xl'>Book Text: </h3>
-        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)}></textarea>
+        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)} required></textarea>
       </label>
 
         <button class="button">Button</button>
