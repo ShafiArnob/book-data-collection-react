@@ -14,6 +14,7 @@ function CreateForm() {
   const [publisher,setPublisher] = useState('')
   const [publishDate,setPublishDate] = useState('')
   const [genre,setGenre] = useState('')
+  const [abstract, setAbstract] = useState('')
   const [bookText,setBookText] = useState('')
   // const [,set] = useState('')
 
@@ -91,7 +92,16 @@ function CreateForm() {
           </select>
         </label>
 
-        <textarea name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)}></textarea>
+        <label className='w-full'>
+          <h3 className='text-2xl'>Book Abstract: </h3>
+          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)}></textarea>
+        </label>
+
+      <label className='w-full'>
+        <h3 className='text-2xl'>Book Text: </h3>
+        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)}></textarea>
+      </label>
+
         <button class="button">Button</button>
       </form>
     </div>
