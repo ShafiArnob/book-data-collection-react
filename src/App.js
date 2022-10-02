@@ -9,7 +9,7 @@ function App() {
     <div className="App bg-slate-800">
       <div className="container">
         <Routes>
-          <Route exact path="/create" element={<Display></Display>}></Route>
+          <Route exact path="/display" element={<Display></Display>}></Route>
           <Route path='/' element={<Create></Create>}></Route>
         </Routes>
       </div>
