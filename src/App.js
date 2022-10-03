@@ -8,8 +8,8 @@ import SingleBook from './pages/singleBook/SingleBook';
 function App() {
 
   return (
-    <div className="App  h-screen w-full">
-      <div className="container">
+    <div className="App h-screen w-full">
+      <div className="w-full">
       <Navbar></Navbar>
         <Routes>
           <Route path='/' element={<Create></Create>}></Route>

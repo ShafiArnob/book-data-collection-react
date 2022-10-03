@@ -12,14 +12,15 @@ function Display() {
 
   // console.log(books);
   return (
-    <div className="flex my-8 justify-center w-full h-full">
+    <div className="flex my-8">
       <div className="w-full">
-      <div className="overflow-x-auto  w-full">
-        <table className="table w-full">
+      <div className="overflow-x-auto ">
+        <table className="table">
           {/* <!-- head --> */}
           <thead>
             <tr>
               <th className="">ID</th>
+              <th className="">Action</th>
               <th className="">Who</th>
               <th className="p-1 px-6">Author</th>
               <th className="p-1">Gender</th>

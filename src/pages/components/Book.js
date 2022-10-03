@@ -1,11 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Book(props) {
   const {id,who,author,gender,birth,birth_place,death,death_place,title,publisher,publish_date,genre,book_abstract,book_text} = props.book
-  console.log(props.book);
+  // console.log(props.book);
   return (
     <tr className='hover'>
       <th className='text-center m-0'>{id}</th>
+      <th className='text-center'>
+        <Link to={`/books/${id}`}><button className='m-0.5 btn btn-outline btn-xs btn-success'>Show</button></Link>
+        <button className='m-0.5 btn btn-outline btn-xs btn-error'>Delete</button>
+      </th>
       <td className='text-center'>{who}</td>
       <td className='text-center'>{author}</td>
       <td className='text-center'>{gender}</td>

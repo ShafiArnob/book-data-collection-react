@@ -10,10 +10,13 @@ function SingleBook() {
     .then(data => setBook(data))
   },[id])
 
+  // console.log(book);
   return (
     <div>
       <h1>SingleBook</h1>
-      <h2>{id}</h2>
+      <div>
+        <h2>{id}</h2>
+      </div>
     </div>
   )
 }
