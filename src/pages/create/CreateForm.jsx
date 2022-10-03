@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Create.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -93,7 +93,7 @@ function CreateForm() {
       <form onSubmit={handleSubmit} className='bg-slate-200'>
         <div className='grid grid-cols-3'>
           <label>
-            <select class="select w-full max-w-xs" required onChange={(e) => setWho(e.target.value)}>
+            <select className="select w-full max-w-xs" required onChange={(e) => setWho(e.target.value)}>
               <option disabled selected>Who</option>
               <option>arnob</option>
               <option>robin</option>
@@ -153,7 +153,7 @@ function CreateForm() {
         
         {/* ############################ Genres ############################ */}
         <label>
-          <select class="select w-full max-w-xs" required onChange={(e) => setGenre(e.target.value)}>
+          <select className="select w-full max-w-xs" required onChange={(e) => setGenre(e.target.value)}>
             <option disabled selected>Genre</option>
             <option>horror</option>
             <option>sci-fi</option>
@@ -176,10 +176,10 @@ function CreateForm() {
         <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)} required></textarea>
       </label>
 
-        <button type='submit' class="button">Submit</button>
+        <button type='submit' className="button">Submit</button>
       </form>
     </div>
-    <ToastContainer />
+    
     </>
   )
 }

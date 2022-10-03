@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+
 function SingleBook() {
   const {id} = useParams()
   const [book, setBook] = useState({})
@@ -10,8 +11,9 @@ function SingleBook() {
     .then(data => setBook(data))
   },[id])
 
-  console.log(book);
   const {id:bid,who,author,gender,birth,birth_place,death,death_place,title,publisher,publish_date,genre,book_abstract,book_text} = book
+  
+
 
   return (
     <div className='flex flex-col items-center '>
@@ -37,8 +39,8 @@ function SingleBook() {
           <p><span className='font-bold'>Genre: </span>{genre}</p>
           <p><span className='font-bold'>Publisher: </span>{publisher}</p>
           <p><span className='font-bold'>Publish Date: </span>{publish_date}</p>
-          <p><span className='font-bold'>Abstract: </span>{book_abstract}</p>
-          <p><span className='font-bold'>Text: </span>{book_text}</p>
+          <p className='bg-gray-100 p-2 m-3 rounded-xl'><span className='font-bold'>Abstract: </span>{book_abstract}</p>
+          <p className='bg-gray-100 p-2 m-3 rounded-xl'><span className='font-bold'>Text: </span>{book_text}</p>
         </div>
       </div>
     </div>
