@@ -3,6 +3,8 @@ import './Create.css'
 
 function CreateForm() {
 
+  const [response, setResponse] = useState('')
+
   const [who,setWho] = useState('')
   const [author,setAuthor] = useState('')
   const [gender,setGender] = useState('')
@@ -21,7 +23,7 @@ function CreateForm() {
   const removeNewline = (str) =>{
     str = str.toString()
     str = str.replace(/\r?\n|\r/g, " ")
-    str = str.replace(/\r?\d|\r/g, " ")
+    // str = str.replace(/\r?\d|\r/g, " ")
     str = str.replace(/[.,/#!$%^&*;:{}=\-_`~()'"॥€]/g," ");
     str = str.replace(/[a-zA-Z]/," ")
     return str
@@ -46,6 +48,7 @@ function CreateForm() {
 
     const data ={
       who:who,
+      id:title,
       author:author,
       gender:gender,
       birth:birth,
@@ -62,6 +65,7 @@ function CreateForm() {
 
     postData(data)
   }
+
   const postData = (data) =>{
     fetch('http://localhost:8000/books', {
       method: 'POST', // or 'PUT'
@@ -69,18 +73,39 @@ function CreateForm() {
       body: JSON.stringify(data),
     })
     .then((response) => response.json())
-    .then((data) => {console.log('Success:', data);})
+    .then((data) => {setResponse(data);})
     .catch((error) => {
       console.error('Error:', error);
     });
+
+    if(response){
+      setWho('')
+      setAuthor('')
+      setGender('')
+      setBirth('')
+      setBirthPlace('')
+      setDeath('')
+      setDeathPlace('')
+
+      setTitle('')
+      setPublisher('')
+      setPublishDate('')
+      setGenre('')
+      setAbstract('')
+      setBookText('')
+    }
   }
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className='bg-slate-200'>
-        <label>
-          <span>who:</span>
-          <input type="text" onChange={(e) => setWho(e.target.value)} required/>
+      <label>
+          <select class="select w-full max-w-xs" required onChange={(e) => setWho(e.target.value)}>
+            <option disabled selected>Who</option>
+            <option>arnob</option>
+            <option>robin</option>
+            <option>hamza</option>
+          </select>
         </label>
         <label>
           <span>Author:</span>
@@ -95,24 +120,24 @@ function CreateForm() {
 
         <label>
           <span>Birth:</span>
-          <input type="text" onChange={(e) => setBirth(e.target.value)} required/>
+          <input type="text" onChange={(e) => setBirth(e.target.value)}/>
           <span>[e.g 01-02-2022]</span>
         </label>
 
         <label>
           <span>Birth Place:</span>
-          <input type="text" onChange={(e) => setBirthPlace(e.target.value)} required/>
+          <input type="text" onChange={(e) => setBirthPlace(e.target.value)}/>
         </label>
 
         <label>
           <span>Death:</span>
-          <input type="text" onChange={(e) => setDeath(e.target.value)} required/>
+          <input type="text" onChange={(e) => setDeath(e.target.value)}/>
           <span>[e.g 01-02-2022]</span>
         </label>
 
         <label>
           <span>Death Place:</span>
-          <input type="text" onChange={(e) => setDeathPlace(e.target.value)} required/>
+          <input type="text" onChange={(e) => setDeathPlace(e.target.value)}/>
         </label>
 
         <h2 className='text-2xl text-center bg-orange-500'>Book</h2>
@@ -124,14 +149,15 @@ function CreateForm() {
         
         <label>
           <span>Publisher:</span>
-          <input type="text" onChange={(e) => setPublisher(e.target.value)} required/>
+          <input type="text" onChange={(e) => setPublisher(e.target.value)}/>
         </label>
 
         <label>
           <span>Publish Date:</span>
-          <input type="text" onChange={(e) => setPublishDate(e.target.value)}required/>
+          <input type="text" onChange={(e) => setPublishDate(e.target.value)}/>
         </label>
         
+        {/* ############################ Genres ############################ */}
         <label>
           <select class="select w-full max-w-xs" required onChange={(e) => setGenre(e.target.value)}>
             <option disabled selected>Genre</option>
@@ -142,12 +168,12 @@ function CreateForm() {
 
         <label className='w-full'>
           <h3 className='text-2xl'>Book Abstract: </h3>
-          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)} ></textarea>
+          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)} required></textarea>
         </label>
 
       <label className='w-full'>
         <h3 className='text-2xl'>Book Text: </h3>
-        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)} required></textarea>
+        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)}></textarea>
       </label>
 
         <button type='submit' class="button">Submit</button>

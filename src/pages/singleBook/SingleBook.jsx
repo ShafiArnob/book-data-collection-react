@@ -18,8 +18,8 @@ function SingleBook() {
       {/* <h1>SingleBook</h1> */}
 
       <div className='w-4/5'>
-        <h2>{id}</h2>
-        <p>Who:{book.who}</p>
+        <h2>{bid}</h2>
+        <p>Who:{who}</p>
         
         <div className='bg-gray-100 p-3 my-3 rounded-2xl'>
           <h1>Author</h1>
