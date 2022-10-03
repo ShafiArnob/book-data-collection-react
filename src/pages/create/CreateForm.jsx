@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './Create.css'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreateForm() {
 
@@ -73,72 +76,63 @@ function CreateForm() {
       body: JSON.stringify(data),
     })
     .then((response) => response.json())
-    .then((data) => {setResponse(data);})
+    .then((data) => {
+      const notify = () => toast.success("Successfull!!!");
+      notify()
+    })
     .catch((error) => {
-      console.error('Error:', error);
+      toast.error('Error:', error);
     });
 
-    if(response){
-      setWho('')
-      setAuthor('')
-      setGender('')
-      setBirth('')
-      setBirthPlace('')
-      setDeath('')
-      setDeathPlace('')
-
-      setTitle('')
-      setPublisher('')
-      setPublishDate('')
-      setGenre('')
-      setAbstract('')
-      setBookText('')
-    }
+    
   }
 
   return (
+    <>
     <div className="form-container">
       <form onSubmit={handleSubmit} className='bg-slate-200'>
-      <label>
-          <select class="select w-full max-w-xs" required onChange={(e) => setWho(e.target.value)}>
-            <option disabled selected>Who</option>
-            <option>arnob</option>
-            <option>robin</option>
-            <option>hamza</option>
-          </select>
-        </label>
-        <label>
-          <span>Author:</span>
-          <input type="text" onChange={(e) => setAuthor(e.target.value)} required/>
-        </label>
+        <div className='grid grid-cols-3'>
+          <label>
+            <select class="select w-full max-w-xs" required onChange={(e) => setWho(e.target.value)}>
+              <option disabled selected>Who</option>
+              <option>arnob</option>
+              <option>robin</option>
+              <option>hamza</option>
+            </select>
+          </label>
+          <label>
+            <span>Author:</span>
+            <input type="text" onChange={(e) => setAuthor(e.target.value)} required/>
+          </label>
 
-        <label>
-          <span>Gender:</span>
-          <input type="text" onChange={(e) => setGender(e.target.value)} required/>
-          <span>[e.g m/f]</span>
-        </label>
+          <label>
+            <span>Gender:</span>
+            <input type="text" onChange={(e) => setGender(e.target.value)} required/>
+            <span>[e.g m/f]</span>
+          </label>
 
-        <label>
-          <span>Birth:</span>
-          <input type="text" onChange={(e) => setBirth(e.target.value)}/>
-          <span>[e.g 01-02-2022]</span>
-        </label>
+          <label>
+            <span>Birth:</span>
+            <input type="text" onChange={(e) => setBirth(e.target.value)}/>
+            <span>[e.g 01-02-2022]</span>
+          </label>
 
-        <label>
-          <span>Birth Place:</span>
-          <input type="text" onChange={(e) => setBirthPlace(e.target.value)}/>
-        </label>
+          <label>
+            <span>Birth Place:</span>
+            <input type="text" onChange={(e) => setBirthPlace(e.target.value)}/>
+          </label>
 
-        <label>
-          <span>Death:</span>
-          <input type="text" onChange={(e) => setDeath(e.target.value)}/>
-          <span>[e.g 01-02-2022]</span>
-        </label>
+          <label>
+            <span>Death:</span>
+            <input type="text" onChange={(e) => setDeath(e.target.value)}/>
+            <span>[e.g 01-02-2022]</span>
+          </label>
 
-        <label>
-          <span>Death Place:</span>
-          <input type="text" onChange={(e) => setDeathPlace(e.target.value)}/>
-        </label>
+          <label>
+            <span>Death Place:</span>
+            <input type="text" onChange={(e) => setDeathPlace(e.target.value)}/>
+          </label>
+        </div>
 
         <h2 className='text-2xl text-center bg-orange-500'>Book</h2>
         
@@ -163,22 +157,30 @@ function CreateForm() {
             <option disabled selected>Genre</option>
             <option>horror</option>
             <option>sci-fi</option>
+            <option>comedy</option>
+            <option>romance</option>
+            <option>detective</option>
+            <option>biography</option>
+            <option>war</option>
+            <option></option>
           </select>
         </label>
 
         <label className='w-full'>
           <h3 className='text-2xl'>Book Abstract: </h3>
-          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)} required></textarea>
+          <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setAbstract(e.target.value)}></textarea>
         </label>
 
       <label className='w-full'>
         <h3 className='text-2xl'>Book Text: </h3>
-        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)}></textarea>
+        <textarea className='w-full' name="Book text" cols="30" rows="10"  onChange={(e) => setBookText(e.target.value)} required></textarea>
       </label>
 
         <button type='submit' class="button">Submit</button>
       </form>
     </div>
+    <ToastContainer />
+    </>
   )
 }
 
