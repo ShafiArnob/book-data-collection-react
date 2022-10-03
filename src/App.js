@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './pages/components/Navbar';
 import Create from './pages/create/Create';
 import Display from './pages/display/Display';
+import SingleBook from './pages/singleBook/SingleBook';
 function App() {
 
   return (
@@ -11,8 +12,9 @@ function App() {
       <div className="container">
       <Navbar></Navbar>
         <Routes>
-          <Route exact path="/display" element={<Display></Display>}></Route>
           <Route path='/' element={<Create></Create>}></Route>
+          <Route exact path="/books" element={<Display></Display>}></Route>
+          <Route path="books/:id" element={<SingleBook></SingleBook>}></Route>
         </Routes>
       </div>
     </div>

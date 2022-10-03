@@ -10,7 +10,7 @@ function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link to="/display">Display</Link>
+            <Link to="/books">Books</Link>
           </li>
           <li>
             <Link to="/">Create</Link>
