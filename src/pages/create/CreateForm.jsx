@@ -20,9 +20,9 @@ function CreateForm() {
 
   const removeNewline = (str) =>{
     str = str.toString()
-    str = str.replace(/\r?\n|\r/g, "")
-    str = str.replace(/\r?\d|\r/g, "")
-    str = str.replace(/[.,/#!$%^&*;:{}=\-_`~()'"॥€]/g,"");
+    str = str.replace(/\r?\n|\r/g, " ")
+    str = str.replace(/\r?\d|\r/g, " ")
+    str = str.replace(/[.,/#!$%^&*;:{}=\-_`~()'"॥€]/g," ");
     str = str.replace(/[a-zA-Z]/," ")
     return str
   }

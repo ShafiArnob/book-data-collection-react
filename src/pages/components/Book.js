@@ -4,7 +4,7 @@ function Book(props) {
   const {id,who,author,gender,birth,birth_place,death,death_place,title,publisher,publish_date,genre,book_abstract,book_text} = props.book
   console.log(props.book);
   return (
-    <tr className='hover:bg-gray-400'>
+    <tr className='hover'>
       <th className='text-center m-0'>{id}</th>
       <td className='text-center'>{who}</td>
       <td className='text-center'>{author}</td>
