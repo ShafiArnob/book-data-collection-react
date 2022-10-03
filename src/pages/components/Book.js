@@ -9,7 +9,6 @@ function Book(props) {
       <th className='text-center m-0'>{id}</th>
       <th className='text-center'>
         <Link to={`/books/${id}`}><button className='m-0.5 btn btn-outline btn-xs btn-success'>Show</button></Link>
-        <button className='m-0.5 btn btn-outline btn-xs btn-error'>Delete</button>
       </th>
       <td className='text-center'>{who}</td>
       <td className='text-center'>{author}</td>
