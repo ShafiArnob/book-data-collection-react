@@ -3,8 +3,11 @@ import './Create.css'
 import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+// import { useNavigate } from 'react-router-dom';
 
 function CreateForm() {
+
+
 
   const [response, setResponse] = useState('')
 
@@ -60,7 +63,7 @@ function CreateForm() {
       death_place:deathPlace,
       title:newBookTitle,
       publisher:publisher,
-      publish_data:publishDate,
+      publish_date:publishDate,
       genre:genre,
       book_abstract:newBookAbstract,
       book_text:newBookText
@@ -79,6 +82,8 @@ function CreateForm() {
     .then((data) => {
       const notify = () => toast.success("Successfull!!!");
       notify()
+      
+
     })
     .catch((error) => {
       toast.error('Error:', error);
